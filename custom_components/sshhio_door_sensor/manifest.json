@@ -1,0 +1,8 @@
+{
+    "domain": "sshhio_door_sensor",
+    "name": "Door Sensor",
+    "documentation": "https://github.com/sshh12/home-assistant-sshhio",
+    "codeowners": ["@sshh12"],
+    "requirements": ["numpy==1.17.0", "opencv-python-headless==4.1.0.25"],
+    "dependencies": []
+}
