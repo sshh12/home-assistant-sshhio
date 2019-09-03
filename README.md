@@ -2,4 +2,4 @@
 
 ### Sensors
 
-* `sshhio_door_sensor`: Camera based door sensor
+* (`sshhio_door_sensor`) Camera based door sensor

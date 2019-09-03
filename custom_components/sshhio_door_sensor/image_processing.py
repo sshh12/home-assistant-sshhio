@@ -60,23 +60,15 @@ class DoorSensor(ImageProcessingEntity):
     def process_image(self, image):
 
         img = cv2.imdecode(np.asarray(bytearray(image)), cv2.IMREAD_UNCHANGED)
-        cv2.imwrite('temp2.jpg', img)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) * self.mask
-        cv2.imwrite('temp.jpg', img)
 
         min_dist = 9e9
         min_class = None
 
-        f = open('temp.txt', 'a')
-        f.write('-------\n')
-
         for classname, img2 in self.ref_pics:
-            dist = np.sum(np.abs(img - img2))
-            f.write('{} {} \n'.format(classname, dist))
+            dist = np.sum(np.square(img - img2))
             if dist < min_dist:
                 min_dist = dist
                 min_class = classname
-
-        f.close()
 
         self._state = classname
